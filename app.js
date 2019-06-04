@@ -29,8 +29,7 @@ class BlockAPI {
     initExpressMiddleWare() {
             this.app.use(bodyParser.urlencoded({ extended: true }));
             this.app.use(bodyParser.json());
-            // added requestTimeStamp for all request.
-            //must edit it 
+            // adding requestTimeStamp 
             this.app.use(function(req, res, next) {
                 req.requestTimeStamp = (new Date().getTime().toString().slice(0, -3));
                 next();
