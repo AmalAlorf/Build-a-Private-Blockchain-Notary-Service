@@ -56,6 +56,11 @@ class BlockController {
                 // check for request properties
                 try {
                     if (req.body.address && req.body.star) {
+                        //check for address in memory pool
+                        if (!this.mempoolValid.get(req.body.address)) {
+                            console.log("Invlaid address in memory pool");
+                            return;
+                        }
                         let blockBody = req.body;
                         if (!blockBody.star.story || !blockBody.star.dec || !blockBody.star.ra) {
                             console.log(`Invalid request `);
@@ -222,7 +227,7 @@ class BlockController {
         }
         ///Get the block using the provided hash
     getStarsHash() {
-            this.app.get("/stars/hash/:hashdata", async(req, res) => {
+            this.app.get("/stars/hash::hashdata", async(req, res) => {
                 //Get block hash 
                 let hashdata = req.params.hashdata;
                 try {
@@ -242,7 +247,7 @@ class BlockController {
          * Implement starts by address
          */
     getStartsWalletAddress() {
-            this.app.get("/stars/address/:addressdata", async(req, res) => {
+            this.app.get("/stars/address::addressdata", async(req, res) => {
                 //Get block address 
                 let addressdata = req.params.addressdata;
                 try {
