@@ -188,6 +188,7 @@ class BlockController {
                     let validationWindows = this.calculateValidationWindow(req);
                     let validRequest = this.createValidRequest(true, memPoolData, validationWindows, isSignatureValid);
                     // save it if it is signature valid.
+                    console.log("isSignatureValid  " + isSignatureValid);
                     if (isSignatureValid) {
                         this.mempoolValid.set(address, validRequest);
                     }
