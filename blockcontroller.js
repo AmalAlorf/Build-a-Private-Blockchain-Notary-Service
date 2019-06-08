@@ -161,7 +161,7 @@ class BlockController {
             requestObject.walletAddress = req.body.address;
             requestObject.requestTimeStamp = req.requestTimeStamp;
             ///set massage 
-            requestObject.message = requestObject.walletAddress + ':' + req.requestTimestamp + ':' + message_star;
+            requestObject.message = requestObject.walletAddress + ':' + req.requestTimeStamp + ':' + message_star;
             requestObject.validationWindow = validationWindow;
             return requestObject;
         }
