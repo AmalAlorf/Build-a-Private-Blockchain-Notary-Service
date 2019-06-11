@@ -90,7 +90,7 @@ class Blockchain {
             try {
                 //get the block from chain
                 let blockValue = await db.get(blockHeight);
-                console.log("blockValue function :" + blockValue);
+                // console.log("blockValue function :" + blockValue);
                 return blockValue;
             } catch (err) {
                 console.log("Error in getBlock function :" + err);
